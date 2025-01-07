@@ -29,7 +29,7 @@
           <a class="nav-link active" href="#">Popis pacijenata</a>
         </li>
       </ul>
-      <a href="login.html" class="btn btn-outline-danger w-100">Odjavi se</a>
+      <a href="/login" class="btn btn-outline-danger w-100">Odjavi se</a>
     </div>
   </div>
 
@@ -52,7 +52,7 @@
     <div class="container-fluid p-4">
       <div class="d-flex justify-content-between align-items-center mb-3">
         <input type="text" id="searchInput" class="form-control w-50" placeholder="Pretraži pacijente">
-        <a href="addPatient.html" class="btn btn-primary">+ Dodaj novog pacijenta</a>
+        <a href="/dodajPacijenta" class="btn btn-primary">+ Dodaj novog pacijenta</a>
       </div>
       
       <div class="table-responsive">
@@ -72,53 +72,53 @@
     </div>
   </div>
 
-  <script>
-    document.addEventListener('DOMContentLoaded', function () {
-      const pacijenti = JSON.parse(localStorage.getItem('pacijenti')) || [];
-      const records = JSON.parse(localStorage.getItem('records')) || [];
-      const patientTable = document.getElementById('patientTable');
-      const searchInput = document.getElementById('searchInput');
+<!--  <script>-->
+<!--    document.addEventListener('DOMContentLoaded', function () {-->
+<!--      const pacijenti = JSON.parse(localStorage.getItem('pacijenti')) || [];-->
+<!--      const records = JSON.parse(localStorage.getItem('records')) || [];-->
+<!--      const patientTable = document.getElementById('patientTable');-->
+<!--      const searchInput = document.getElementById('searchInput');-->
 
-      function renderTable(filteredPacijenti) {
-        patientTable.innerHTML = ''; // Čišćenje tablice prije dodavanja novih redaka
+<!--      function renderTable(filteredPacijenti) {-->
+<!--        patientTable.innerHTML = ''; // Čišćenje tablice prije dodavanja novih redaka-->
 
-        filteredPacijenti.forEach((pacijent) => {
-          const patientRecords = records.filter(record => record.email === pacijent.email);
-          const zadnjeStanje = patientRecords.length > 0 ? patientRecords[patientRecords.length - 1].tlak : 'Nema dostupnih podataka';
+<!--        filteredPacijenti.forEach((pacijent) => {-->
+<!--          const patientRecords = records.filter(record => record.email === pacijent.email);-->
+<!--          const zadnjeStanje = patientRecords.length > 0 ? patientRecords[patientRecords.length - 1].tlak : 'Nema dostupnih podataka';-->
 
-          const row = document.createElement('tr');
-          row.innerHTML = `
-            <td>${pacijent.ime} ${pacijent.prezime}</td>
-            <td>${zadnjeStanje}</td>
-            <td>${pacijent.email}</td>
-          `;
+<!--          const row = document.createElement('tr');-->
+<!--          row.innerHTML = `-->
+<!--            <td>${pacijent.ime} ${pacijent.prezime}</td>-->
+<!--            <td>${zadnjeStanje}</td>-->
+<!--            <td>${pacijent.email}</td>-->
+<!--          `;-->
 
-          row.style.cursor = 'pointer';
-          row.addEventListener('click', function () {
-            localStorage.setItem('selectedPatientEmail', pacijent.email);
-            window.location.href = 'patientRecords.html';
-          });
+<!--          row.style.cursor = 'pointer';-->
+<!--          row.addEventListener('click', function () {-->
+<!--            localStorage.setItem('selectedPatientEmail', pacijent.email);-->
+<!--            window.location.href = 'patientRecords.html';-->
+<!--          });-->
 
-          patientTable.appendChild(row);
-        });
-      }
+<!--          patientTable.appendChild(row);-->
+<!--        });-->
+<!--      }-->
 
-      // Inicijalno renderiranje svih pacijenata
-      renderTable(pacijenti);
+<!--      // Inicijalno renderiranje svih pacijenata-->
+<!--      renderTable(pacijenti);-->
 
-      // Filtriranje pacijenata prema unosu
-      searchInput.addEventListener('input', function () {
-        const searchTerm = searchInput.value.toLowerCase();
+<!--      // Filtriranje pacijenata prema unosu-->
+<!--      searchInput.addEventListener('input', function () {-->
+<!--        const searchTerm = searchInput.value.toLowerCase();-->
 
-        const filteredPacijenti = pacijenti.filter(pacijent => 
-          pacijent.ime.toLowerCase().includes(searchTerm) ||
-          pacijent.prezime.toLowerCase().includes(searchTerm) ||
-          pacijent.email.toLowerCase().includes(searchTerm)
-        );
+<!--        const filteredPacijenti = pacijenti.filter(pacijent => -->
+<!--          pacijent.ime.toLowerCase().includes(searchTerm) ||-->
+<!--          pacijent.prezime.toLowerCase().includes(searchTerm) ||-->
+<!--          pacijent.email.toLowerCase().includes(searchTerm)-->
+<!--        );-->
 
-        renderTable(filteredPacijenti);
-      });
-    });
-  </script>
+<!--        renderTable(filteredPacijenti);-->
+<!--      });-->
+<!--    });-->
+<!--  </script>-->
 </body>
 </html>
