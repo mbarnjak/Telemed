@@ -57,58 +57,54 @@
       </div>
 
       <h3 class="mb-4">Dodavanje novog pacijenta</h3>
-      <form>
+      <form action="/dodajNovogPacijenta">
         <div class="mb-3">
           <label for="ime" class="form-label">Ime:</label>
-          <input type="text" class="form-control" id="ime" required>
+          <input type="text" class="form-control" id="ime" name="ime" required>
         </div>
         <div class="mb-3">
           <label for="prezime" class="form-label">Prezime:</label>
-          <input type="text" class="form-control" id="prezime" required>
+          <input type="text" class="form-control" id="prezime" name="prezime" required>
         </div>
         <div class="mb-3">
           <label for="email" class="form-label">Email:</label>
-          <input type="email" class="form-control" id="email" required>
+          <input type="email" class="form-control" id="email" name="email" required>
         </div>
         <div class="mb-3">
           <label for="telefon" class="form-label">Telefon:</label>
-          <input type="text" class="form-control" id="telefon" required>
+          <input type="text" class="form-control" id="telefon" name="telefon" required>
         </div>
         <div class="mb-3">
           <label for="adresa" class="form-label">Adresa:</label>
-          <input type="text" class="form-control" id="adresa">
-        </div>
-        <div class="mb-3">
-          <label for="grad" class="form-label">Grad:</label>
-          <input type="text" class="form-control" id="grad">
+          <input type="text" class="form-control" id="adresa" name="adresa">
         </div>
         <div class="mb-3">
           <label for="lozinka" class="form-label">Lozinka:</label>
-          <input type="password" class="form-control" id="lozinka" required>
+          <input type="password" class="form-control" id="lozinka" name="lozinka" required>
         </div>
         <button type="submit" class="btn btn-primary w-100">Dodaj novog pacijenta</button>
       </form>
     </div>
   </div>
 
-  <script>
-    document.querySelector('form').addEventListener('submit', function(event) {
-      event.preventDefault();
+<!--  <script>-->
+<!--    document.querySelector('form').addEventListener('submit', function(event) {-->
+<!--      event.preventDefault();-->
 
-      const ime = document.getElementById('ime').value;
-      const prezime = document.getElementById('prezime').value;
-      const email = document.getElementById('email').value;
-      const telefon = document.getElementById('telefon').value;
-      const adresa = document.getElementById('adresa').value;
-      const grad = document.getElementById('grad').value;
-      const lozinka = document.getElementById('lozinka').value;
+<!--      const ime = document.getElementById('ime').value;-->
+<!--      const prezime = document.getElementById('prezime').value;-->
+<!--      const email = document.getElementById('email').value;-->
+<!--      const telefon = document.getElementById('telefon').value;-->
+<!--      const adresa = document.getElementById('adresa').value;-->
+<!--      const grad = document.getElementById('grad').value;-->
+<!--      const lozinka = document.getElementById('lozinka').value;-->
 
-      let pacijenti = JSON.parse(localStorage.getItem('pacijenti')) || [];
-      pacijenti.push({ ime, prezime, email, telefon, adresa, grad, lozinka });
-      localStorage.setItem('pacijenti', JSON.stringify(pacijenti));
+<!--      let pacijenti = JSON.parse(localStorage.getItem('pacijenti')) || [];-->
+<!--      pacijenti.push({ ime, prezime, email, telefon, adresa, grad, lozinka });-->
+<!--      localStorage.setItem('pacijenti', JSON.stringify(pacijenti));-->
 
-      window.location.href = 'patientList.html';
-    });
-  </script>
+<!--      window.location.href = 'patientList.html';-->
+<!--    });-->
+<!--  </script>-->
 </body>
 </html>

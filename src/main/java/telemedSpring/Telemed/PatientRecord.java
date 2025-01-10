@@ -1,11 +1,32 @@
 package telemedSpring.Telemed;
 
+import jakarta.persistence.*;
+
+@Entity
 public class PatientRecord {
+    @Id
+    @GeneratedValue
+    private int patientRecordId;
     private String date;
     private int otkucaji;
     private int sistolickiTlak;
     private int dijastolickiTlak;
     private String opis;
+
+    @ManyToOne
+    @JoinColumn(name="userId")
+    private AppUser appUser;
+
+    public AppUser getAppUser() {
+        return appUser;
+    }
+
+    public void setAppUser(AppUser appUser) {
+        this.appUser = appUser;
+    }
+
+    public PatientRecord() {
+    }
 
     public PatientRecord(int otkucaji) {
         this.otkucaji = otkucaji;

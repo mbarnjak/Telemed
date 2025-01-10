@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="hr">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -45,7 +45,7 @@
           <a class="nav-link active" href="#">Popis pacijenata</a>
         </li>
       </ul>
-      <a href="login.html" class="btn btn-outline-danger mt-auto">Odjavi se</a>
+      <a href="/login" class="btn btn-outline-danger mt-auto">Odjavi se</a>
     </div>
 
     <!-- Main content -->
@@ -65,7 +65,12 @@
             </tr>
           </thead>
           <tbody id="patientTable">
-            <!-- Dinamički sadržaj -->
+            <tr th:each="item, iterStat: ${appUsersList}">
+              <td th:text="${item.name}"></td>
+              <td th:text="${item.surname}"></td>
+              <td th:text="${item.email}"></td>
+            </tr>
+
           </tbody>
         </table>
       </div>

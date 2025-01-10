@@ -70,7 +70,7 @@
         </tr>
         </thead>
         <tbody id="records-table">
-        <tr th:each="item, iterStat : ${patientRecordList}">
+        <tr th:each="item, iterStat : ${patientRecords}">
           <td th:text="${iterStat.index + 1}"></td>
           <td th:text="${item.date}"></td>
           <td th:text="${item.sistolickiTlak}"></td>
