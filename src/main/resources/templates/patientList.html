@@ -60,8 +60,9 @@
           <thead>
             <tr>
               <th>Ime</th>
-              <th>Zadnje stanje</th>
+              <th>Prezime</th>
               <th>Email adresa</th>
+              <th>Opcije</th>
             </tr>
           </thead>
           <tbody id="patientTable">
@@ -69,6 +70,7 @@
               <td th:text="${item.name}"></td>
               <td th:text="${item.surname}"></td>
               <td th:text="${item.email}"></td>
+              <td><a th:href="@{/zapisiPacijenta(email=${item.email})}">Popis zapisa</a></td>
             </tr>
 
           </tbody>

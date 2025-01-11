@@ -12,4 +12,5 @@ public interface PatientRecordRespository extends JpaRepository<PatientRecord, I
 
 
     List<PatientRecord> findByAppUser(AppUser user);
+
 }
